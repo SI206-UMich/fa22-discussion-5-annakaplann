@@ -93,12 +93,20 @@ class TestAllMethods(unittest.TestCase):
 		max_stock = Costco.get_max_stock()
 		self.assertEqual(max_stock, self.item3)
 
+		SamsClub = Warehouse([self.item4, self.item2, self.item1])
+		max_stock = SamsClub.get_max_stock()
+		self.assertEqual(max_stock, self.item4)
+
 
 	# Check to see whether the warehouse correctly return the item with the highest price
 	def test_warehouse_max_price(self):
 		Walmart = Warehouse([self.item3, self.item4, self.item5])
 		max_price = Walmart.get_max_price()
 		self.assertEqual(max_price, self.item5)
+
+		Target = Warehouse([self.item2, self.item1, self.item3])
+		max_price = Target.get_max_price()
+		self.assertEqual(max_price, self.item1)
 		
 
 def main():
