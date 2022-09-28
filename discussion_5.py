@@ -3,8 +3,8 @@ import unittest
 # Counts the number of a's in a sentence (e.g., a string)
 def count_a(sentence):
 	total = 0
-	for i in range(len(sentence) - 1):
-		if i == 'a':
+	for i in sentence:
+		if i == 'a' or i == "A":
 			total += 1
 	return total
 
@@ -63,7 +63,10 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether count_a works
 	def test_count_a(self):
-		pass
+		self.assertEqual(count_a(""), 0)
+		self.assertEqual(count_a("hi, my name is anna."), 3)
+		self.assertEqual(count_a("Hi, my name is Anna."), 3)
+		self.assertEqual(count_a("The sky is blue"), 0)
 
 
 	## Check to see whether you can add an item to the warehouse
